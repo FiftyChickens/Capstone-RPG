@@ -1,0 +1,21 @@
+Text RPG: Idea Picked
+
+A game that uses buttons to prompt the user where to go or what to do.
+
+this website would use an API I made to for locations, monsters, and items.
+
+The map will be set and the same for all users,
+however the monsters at the locations will be random.
+
+when beating the game, the speed will be posted to a leaderboard.
+
+
+
+Where to watch: 
+
+Create an easy-to-use platform where users can enter the title of any
+movie or TV show to instantly see where it’s available for streaming
+
+use API's for popular streaming sites or make one if free versions are not available
+
+allow users to save shows they have watched and plan to watch.
