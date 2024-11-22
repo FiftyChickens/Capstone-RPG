@@ -19,3 +19,15 @@ movie or TV show to instantly see where it’s available for streaming
 use API's for popular streaming sites or make one if free versions are not available
 
 allow users to save shows they have watched and plan to watch.
+
+
+Wedding website:
+
+Make a front end focused website that has the usual wedding details: location, guest info, food plan/catering options, party information, photos etc.
+
+Users would be able to rsvp to the website for ceremony, and/or reception.
+A list would be available for who RSVP.
+
+a Registry would link to what gifts the host would like with links to where to purchase.
+
+Users could also upload wedding photos to the website,
