@@ -1,0 +1,49 @@
+[
+  {
+    "name": "Town Merchant",
+    "location": "townSquare",
+    "itemsForSale": [
+      {
+        "itemId": "67ad2c5633ae5f1d35ec7bbd",
+        "price": 20,
+        "quantity": 10
+      },
+      {
+        "itemId": "67ad2c5633ae5f1d35ec7bbe",
+        "price": 30,
+        "quantity": 5
+      },
+      {
+        "itemId": "67ad2c5633ae5f1d35ec7bbf",
+        "price": 10,
+        "quantity": 15
+      },
+      {
+        "itemId": "67ad2c5633ae5f1d35ec7bc0",
+        "price": 20,
+        "quantity": 10
+      }
+    ]
+  },
+  {
+    "name": "Elven Merchant",
+    "location": "elvenVillage",
+    "itemsForSale": [
+      {
+        "itemId": "67ad2c5633ae5f1d35ec7bc1",
+        "price": 100,
+        "quantity": 3
+      },
+      {
+        "itemId": "67ad2c5633ae5f1d35ec7bbf",
+        "price": 10,
+        "quantity": 5
+      },
+      {
+        "itemId": "67ad2c5633ae5f1d35ec7bc0",
+        "price": 20,
+        "quantity": 8
+      }
+    ]
+  }
+]

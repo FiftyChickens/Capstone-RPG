@@ -1,0 +1,87 @@
+{
+  "users": {
+    "_id": "ObjectId",
+    "username": "string",
+    "passwordHash": "string",
+    "email": "string",
+    "registeredAt": "Date",
+    "lastLogin": "Date",
+    "stats": {
+      "health": "number",
+      "gold": "number",
+      "damage": "number"
+    },
+    "inventory": [
+      {
+        "itemId": "ObjectId",
+        "name": "string",
+        "quantity": "number"
+      }
+    ],
+    "quests": [
+      {
+        "questId": "ObjectId",
+        "status": "string",
+        "progress": "number"
+      }
+    ],
+    "isGuest": "boolean",
+    "score": "number"
+  },
+  "sessions": {
+    "_id": "ObjectId",
+    "userId": "ObjectId",
+    "startedAt": "Date",
+    "endedAt": "Date",
+    "gameState": {
+      "location": "string",
+      "currentQuest": "ObjectId",
+      "health": "number",
+      "gold": "number",
+      "damage": "number"
+    }
+  },
+  "leaderboard": [
+    {
+      "userId": "ObjectId",
+      "username": "string",
+      "score": "number",
+      "timestamp": "Date"
+    }
+  ],
+  "enemies": {
+    "_id": "ObjectId",
+    "name": "string",
+    "health": "number",
+    "damage": "number",
+    "reward": {
+      "gold": "number",
+      "items": [
+        {
+          "itemId": "ObjectId",
+          "name": "string",
+          "quantity": "number"
+        }
+      ]
+    }
+  },
+  "items": {
+    "_id": "ObjectId",
+    "name": "string",
+    "description": "string",
+    "type": "string",
+    "value": "number"
+  },
+  "merchantInventory": {
+    "_id": "ObjectId",
+    "merchantName": "string",
+    "items": [
+      {
+        "itemId": "ObjectId",
+        "name": "string",
+        "price": "number",
+        "quantity": "number"
+      }
+    ]
+  }
+}

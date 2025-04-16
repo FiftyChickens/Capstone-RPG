@@ -1,0 +1,64 @@
+---Registration & Authentication---
+GET /
+- Shows the main landing page with navigation to login or sign-up.
+- Login Page
+
+GET /login
+- Displays the login form.
+- User Login
+
+POST /login
+- Success: 200 OK → Redirects to /
+- Error: 400/404 → Shows login error.
+
+GET /register
+- Displays the sign-up form.
+
+POST /register
+- Success: 201 Created → Redirects to /
+- Error: 400 Bad Request → Shows registration error.
+
+---User Data & Profiles---
+GET /api/users/:userId
+- Returns page with user stats, quests, and inventory.
+
+POST /api/users/:userId
+- Success: 200 OK → Returns updated data.
+- Error: 400 Bad Request → Returns error message.
+
+---Game Actions---
+POST /api/session/start
+- Success: 201 Created → Returns session details.
+- Error: 400 Bad Request → Returns error.
+
+POST /api/session/update
+- Saves the current game state.
+- End Game Session
+
+POST /api/session/end
+- Ends game and sends score to leaderboard.
+- Error: 400 Bad Request → Returns failure message.
+
+---leaderboard---
+GET /api/leaderboard
+- Returns top players and scores.
+
+POST /api/leaderboard
+- Adds a new score to the leaderboard.
+- Error: 400 Bad Request → Returns failure message.
+
+---Combat & Enemies---
+GET /api/enemies/:enemyId
+- Retrieves enemy stats for battle.
+
+POST /api/enemies/:enemyId/defeat
+- Success: 200 OK → Returns loot.
+- Error: 400 Bad Request → Returns failure message.
+
+---Merchants & Items---
+GET /api/merchants/:merchantId
+- Retrieves items available for purchase.
+
+POST /api/merchants/:merchantId/buy
+- Success: 200 OK → Updates inventory.
+- Error: 400 Bad Request → Returns failure.

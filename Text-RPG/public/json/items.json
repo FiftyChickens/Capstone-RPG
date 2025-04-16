@@ -1,0 +1,128 @@
+[
+  {
+    "name": "Basic Sword",
+    "type": "weapon",
+    "value": 10,
+    "effect": "Increases attack damage by 5",
+    "rarity": "common"
+  },
+  {
+    "name": "Iron Shield",
+    "type": "armor",
+    "value": 15,
+    "effect": "Increases defense by 10",
+    "rarity": "common"
+  },
+  {
+    "name": "Health Potion (Week)",
+    "type": "potion",
+    "value": 5,
+    "effect": "Heals 15 health",
+    "rarity": "common"
+  },
+  {
+    "name": "Health Potion (Regular)",
+    "type": "potion",
+    "value": 10,
+    "effect": "Heals 30 health",
+    "rarity": "common"
+  },
+  {
+    "name": "Elven Sword",
+    "type": "weapon",
+    "value": 50,
+    "effect": "Increases attack damage by 20",
+    "rarity": "rare"
+  },
+  {
+    "name": "Elven Armor",
+    "type": "armor",
+    "value": 75,
+    "effect": "Increases defense by 25",
+    "rarity": "rare"
+  },
+  {
+    "name": "Dragon Scale Shield",
+    "type": "armor",
+    "value": 100,
+    "effect": "Increases defense by 50, resistance to dragon fire",
+    "rarity": "epic"
+  },
+  {
+    "name": "Fireball Potion",
+    "type": "potion",
+    "value": 20,
+    "effect": "Deals 40 fire damage to a single enemy",
+    "rarity": "rare"
+  },
+  {
+    "name": "Gold Coin",
+    "type": "miscellaneous",
+    "value": 1,
+    "effect": "Currency used to buy items and services",
+    "rarity": "common"
+  },
+  {
+    "name": "Elven Bow",
+    "type": "weapon",
+    "value": 70,
+    "effect": "Increases attack damage by 25, ranged",
+    "rarity": "epic"
+  },
+  {
+    "name": "Healing Herb",
+    "type": "potion",
+    "value": 8,
+    "effect": "Heals 10 health, usable in combat",
+    "rarity": "uncommon"
+  },
+  {
+    "name": "Large Spider Venom",
+    "type": "miscellaneous",
+    "value": 5,
+    "effect": "Can be sold to a merchant for gold",
+    "rarity": "common"
+  },
+  {
+    "name": "Goblin Ear",
+    "type": "miscellaneous",
+    "value": 3,
+    "effect": "Can be sold to a merchant for gold",
+    "rarity": "common"
+  },
+  {
+    "name": "Boar Tusk",
+    "type": "miscellaneous",
+    "value": 7,
+    "effect": "Can be sold to a merchant for gold",
+    "rarity": "common"
+  },
+  {
+    "name": "Wolf Pelt",
+    "type": "miscellaneous",
+    "value": 10,
+    "effect": "Can be sold to a merchant for gold or used for crafting",
+    "rarity": "common"
+  },
+  {
+    "name": "Orc Bone",
+    "type": "miscellaneous",
+    "value": 12,
+    "effect": "Can be sold to a merchant for gold",
+    "rarity": "uncommon"
+  },
+  {
+    "name": "Elven Healing Potion",
+    "type": "potion",
+    "value": 50,
+    "effect": "Heals 50 health, can be used in combat",
+    "rarity": "epic"
+  },
+  {
+    "name": "Dragon's Breath Elixir",
+    "type": "potion",
+    "value": 100,
+    "effect": "Increases attack damage by 30 for 5 minutes",
+    "rarity": "epic"
+  }
+]

@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the scrollbar itself */
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+  height: 12px; /* Height for horizontal scrollbar */
+}
+
+/* Style the track (background) of the scrollbar */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Light background for the track */
+  border-radius: 5px; /* No border-radius on the left side */
+}
+
+/* Style the handle (thumb) of the scrollbar */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Gray color for the thumb */
+  border-radius: 0px; /* No border-radius on the left side */
+  border-top-right-radius: 4px; /* Round the top-right corner */
+  border-bottom-right-radius: 4px; /* Round the bottom-right corner */
+}
+
+/* Style the thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker color when hovering */
+}
+
+/* Style the corner of the scrollbar */
+::-webkit-scrollbar-corner {
+  background: #f1f1f1;
+}
+
+.defaultButton {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.defaultButton:hover:not(:disabled) {
+  background-color: #7a643e;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.defaultButton:disabled {
+  cursor: not-allowed;
+  border-color: #cccccc;
+}
+
+/* Or use Tailwind's hover: */
+.defaultButtonTailwind {
+  @apply mt-4 p-2 border border-white rounded-lg cursor-pointer
+         hover:bg-[#7a643e] hover:shadow-md transition-all;
+}

@@ -1,0 +1,158 @@
+[
+  {
+    "name": "Adventure begins!",
+    "description": "Prepare yourself before heading out.",
+    "objectives": [
+      {
+        "type": "collect",
+        "target": "67ad2c5633ae5f1d35ec7bbd",
+        "quantity": 1
+      }
+    ],
+    "rewards": {
+      "XP": 20,
+      "gold": 0,
+      "items": []
+    }
+  },
+  {
+    "name": "Defend the Town",
+    "description": "A messenger from a nearby town asks for your help to defend against goblin attacks.",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "67ad2d2033ae5f1d35ec7bd1",
+        "quantity": 2
+      }
+    ],
+    "rewards": {
+      "XP": 50,
+      "gold": 20,
+      "items": []
+    }
+  },
+  {
+    "name": "Speak to the Mayor",
+    "description": "After defending the town, speak to the mayor for more information.",
+    "objectives": [
+      {
+        "type": "talk",
+        "target": "mayor"
+      }
+    ],
+    "rewards": {
+      "XP": 30,
+      "gold": 10,
+      "items": []
+    }
+  },
+  {
+    "name": "Find the Path to the Dragon",
+    "description": "Gather information about the dragon's last known location.",
+    "objectives": [
+      {
+        "type": "talk",
+        "target": "townsman"
+      }
+    ],
+    "rewards": {
+      "XP": 40,
+      "gold": 15,
+      "items": []
+    }
+  },
+  {
+    "name": "Explore the Dark Forest",
+    "description": "Wander the Dark Forest to face various enemies and get stronger.",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "random",
+        "quantity": 5
+      }
+    ],
+    "rewards": {
+      "XP": 100,
+      "gold": 50,
+      "items": ["67ad2c5633ae5f1d35ec7bbf"]
+    }
+  },
+  {
+    "name": "Enter the Elven Village",
+    "description": "The elves attack you on sight! Bring an elf to low health to speak with them.",
+    "objectives": [
+      {
+        "type": "damage",
+        "target": "elf",
+        "threshold": 20
+      }
+    ],
+    "rewards": {
+      "XP": 60,
+      "gold": 30,
+      "items": []
+    }
+  },
+  {
+    "name": "Journey to the Mountain",
+    "description": "Travel five times towards the mountain, facing dangerous enemies along the way.",
+    "objectives": [
+      {
+        "type": "travel",
+        "destination": "mountain",
+        "times": 5
+      }
+    ],
+    "rewards": {
+      "XP": 150,
+      "gold": 100,
+      "items": []
+    }
+  },
+  {
+    "name": "Prepare for the Final Battle",
+    "description": "Set up a camp at the mountain to rest and prepare.",
+    "objectives": [
+      {
+        "type": "setup",
+        "target": "camp"
+      }
+    ],
+    "rewards": {
+      "XP": 80,
+      "gold": 40,
+      "items": []
+    }
+  },
+  {
+    "name": "Hunt the Dragon",
+    "description": "Face the dragon in a final battle. Be well-equipped and strong enough to survive!",
+    "objectives": [
+      {
+        "type": "kill",
+        "target": "dragon",
+        "quantity": 1
+      }
+    ],
+    "rewards": {
+      "XP": 500,
+      "gold": 500,
+      "items": ["67ad2c5633ae5f1d35ec7bc1"]
+    }
+  },
+  {
+    "name": "Return as a Hero",
+    "description": "Return to town or choose to live among the elves.",
+    "objectives": [
+      {
+        "type": "decision",
+        "options": ["returnToTown", "liveWithElves"]
+      }
+    ],
+    "rewards": {
+      "XP": 200,
+      "gold": 200,
+      "items": []
+    }
+  }
+]

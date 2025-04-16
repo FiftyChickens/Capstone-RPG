@@ -1,0 +1,276 @@
+[
+  {
+    "_id": {
+      "$oid": "67ae4e221f7be1d2e20f48ef"
+    },
+    "name": "Home",
+    "description": "You wake up in your cozy home. A shield and a sword are lying on the table.",
+    "actions": [
+      {
+        "_id": {
+          "$oid": "67b7c9e01f6a56beaeb4db47"
+        },
+        "actionType": "Go outside",
+        "destination": "67ae4e221f7be1d2e20f48f0"
+      },
+      {
+        "_id": {
+          "$oid": "67b7c9e21f6a56beaeb4db49"
+        },
+        "actionType": "Gather Items",
+        "items": ["67ad2c5633ae5f1d35ec7bbd", "67ad2c5633ae5f1d35ec7bbe"]
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "67ae4e221f7be1d2e20f48f0"
+    },
+    "name": "Town Gate",
+    "description": "You step outside, and a messenger approaches you, asking for help to defend the town.",
+    "actions": [
+      {
+        "_id": {
+          "$oid": "67b7c9e91f6a56beaeb4db4b"
+        },
+        "actionType": "Agree to help",
+        "quest": "67ad30dc33ae5f1d35ec7bd9"
+      },
+      {
+        "_id": {
+          "$oid": "67b7c9ea1f6a56beaeb4db4d"
+        },
+        "actionType": "Town Square",
+        "destination": "67ae4e221f7be1d2e20f48f1"
+      },
+      {
+        "_id": {
+          "$oid": "67b7c9eb1f6a56beaeb4db4f"
+        },
+        "actionType": "Go Home",
+        "destination": "67ae4e221f7be1d2e20f48ef"
+      },
+      {
+        "_id": {
+          "$oid": "67bcbc361943c5129a29e68c"
+        },
+        "actionType": "Hunt",
+        "possibleEncounters": [
+          {
+            "enemyId": "67ad2d2033ae5f1d35ec7bd1",
+            "chance": 0.75
+          },
+          {
+            "enemyId": "67ad2d2033ae5f1d35ec7bd3",
+            "chance": 0.25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "67ae4e221f7be1d2e20f48f1"
+    },
+    "name": "Town Square",
+    "description": "The heart of the town. Crowds form around the markets.",
+    "actions": [
+      {
+        "_id": {
+          "$oid": "67b7c9f31f6a56beaeb4db51"
+        },
+        "actionType": "Talk to the mayor",
+        "quest": "67ad30dc33ae5f1d35ec7bdb"
+      },
+      {
+        "_id": {
+          "$oid": "67b7c9f51f6a56beaeb4db53"
+        },
+        "actionType": "Speak to merchant",
+        "destination": "67ad313233ae5f1d35ec7be7"
+      },
+      {
+        "_id": {
+          "$oid": "67b7c9f61f6a56beaeb4db55"
+        },
+        "actionType": "Town Gate",
+        "destination": "67ae4e221f7be1d2e20f48f0"
+      },
+      {
+        "_id": {
+          "$oid": "67b7c9f71f6a56beaeb4db57"
+        },
+        "actionType": "Dark Forest",
+        "destination": "67ae4e221f7be1d2e20f48f2"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "67ae4e221f7be1d2e20f48f2"
+    },
+    "name": "Dark Forest",
+    "description": "The dark forest stretches endlessly there is no path to guide you. Strange sounds can be heard all around.",
+    "actions": [
+      {
+        "_id": {
+          "$oid": "67b7ca051f6a56beaeb4db59"
+        },
+        "actionType": "Wander",
+        "possibleEncounters": [
+          {
+            "enemyId": "67ad2d2033ae5f1d35ec7bd1",
+            "chance": 0.3
+          },
+          {
+            "enemyId": "67ad2d2033ae5f1d35ec7bd2",
+            "chance": 0.2
+          },
+          {
+            "enemyId": "67ad2d2033ae5f1d35ec7bd3",
+            "chance": 0.15
+          },
+          {
+            "enemyId": "67ad2d2033ae5f1d35ec7bd4",
+            "chance": 0.15
+          },
+          {
+            "enemyId": "67ad2d2033ae5f1d35ec7bd5",
+            "chance": 0.1
+          }
+        ]
+      },
+      {
+        "_id": {
+          "$oid": "67b7ca061f6a56beaeb4db5b"
+        },
+        "actionType": "Ask Questions",
+        "quest": "dragon Location"
+      },
+      {
+        "_id": {
+          "$oid": "67b7ca071f6a56beaeb4db5d"
+        },
+        "actionType": "Town Square",
+        "destination": "67ae4e221f7be1d2e20f48f1"
+      },
+      {
+        "_id": {
+          "$oid": "67b7ca081f6a56beaeb4db5f"
+        },
+        "actionType": "Elven Village",
+        "destination": "67ae4e221f7be1d2e20f48f3"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "67ae4e221f7be1d2e20f48f3"
+    },
+    "name": "Elven Village",
+    "description": "A hidden village where the elves reside. The elves initially attack, but after defeating one, you can gather information about the dragon.",
+    "actions": [
+      {
+        "_id": {
+          "$oid": "67b7ca131f6a56beaeb4db61"
+        },
+        "actionType": "talkToElf",
+        "quest": "dragonLocation"
+      },
+      {
+        "_id": {
+          "$oid": "67b7ca151f6a56beaeb4db63"
+        },
+        "actionType": "shopWithMerchant",
+        "destination": "elvenMerchant"
+      },
+      {
+        "_id": {
+          "$oid": "67b7ca161f6a56beaeb4db65"
+        },
+        "actionType": "Dark Forest",
+        "destination": "67ae4e221f7be1d2e20f48f2"
+      },
+      {
+        "_id": {
+          "$oid": "67b7ca171f6a56beaeb4db67"
+        },
+        "actionType": "Mountain",
+        "destination": "67ae4e221f7be1d2e20f48f4"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "67ae4e221f7be1d2e20f48f4"
+    },
+    "name": "Mountain Path",
+    "description": "A perilous journey towards the distant mountain where the dragon resides. Along the way, you face various challenges and enemies.",
+    "actions": [
+      {
+        "_id": {
+          "$oid": "67b7ca3b1f6a56beaeb4db6f"
+        },
+        "actionType": "travel",
+        "possibleEncounters": [
+          {
+            "enemyId": "67ad2d2033ae5f1d35ec7bd4",
+            "chance": 0.2
+          },
+          {
+            "enemyId": "67ad2d2033ae5f1d35ec7bd5",
+            "chance": 0.2
+          },
+          {
+            "enemyId": "67ad2d2033ae5f1d35ec7bd3",
+            "chance": 0.15
+          }
+        ]
+      },
+      {
+        "_id": {
+          "$oid": "67b7ca2c1f6a56beaeb4db69"
+        },
+        "actionType": "Elven Village",
+        "destination": "67ae4e221f7be1d2e20f48f3"
+      },
+      {
+        "_id": {
+          "$oid": "67b7ca2f1f6a56beaeb4db6b"
+        },
+        "actionType": "setCamp",
+        "quest": "67ad30dc33ae5f1d35ec7bdf"
+      },
+      {
+        "_id": {
+          "$oid": "67b7ca371f6a56beaeb4db6d"
+        },
+        "actionType": "Dragon's Lair",
+        "destination": "67ae4e221f7be1d2e20f48f5"
+      }
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "67ae4e221f7be1d2e20f48f5"
+    },
+    "name": "Dragon's Lair",
+    "description": "A dangerous lair where the dragon resides. You must be strong, with health potions and good equipment, to defeat the beast.",
+    "actions": [
+      {
+        "_id": {
+          "$oid": "67b7ca491f6a56beaeb4db71"
+        },
+        "actionType": "fightDragon",
+        "enemyId": "67ad2d2033ae5f1d35ec7bd6"
+      },
+      {
+        "_id": {
+          "$oid": "67b7ca4a1f6a56beaeb4db73"
+        },
+        "actionType": "Elven Village",
+        "destination": "67ae4e221f7be1d2e20f48f3"
+      }
+    ]
+  }
+]
