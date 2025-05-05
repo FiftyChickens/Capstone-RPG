@@ -37,22 +37,23 @@ export async function POST(request: NextRequest) {
     }
 
     //create token data
-    const token = jwt.sign(
-      {
-        id: user._id,
-        username: user.username,
-        email: user.email,
-      },
-      process.env.JWT_SECRET!,
-      { expiresIn: "1d" }
-    );
+    const tokenData = {
+      id: user._id,
+      username: user.username,
+      email: user.email,
+    };
+    //create token
+    const token = jwt.sign(tokenData, process.env.JWT_SECRET!, {
+      expiresIn: "1d",
+    });
 
     const response = NextResponse.json({
       message: "Login successful",
       success: true,
+      token,
     });
 
-    response.cookies.set("session", token, {
+    response.cookies.set("token", token, {
       httpOnly: true, // Makes it inaccessible to JavaScript
       secure: process.env.NODE_ENV === "production", // Secure only in production
       sameSite: "strict",
