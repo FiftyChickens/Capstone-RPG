@@ -35,7 +35,7 @@ export default function ResetPasswordPage() {
       timer += 3000;
     } else {
       try {
-        await axios.post("/api/auth/confirm", { token, password });
+        await axios.patch("/api/auth/confirm", { token, password });
         setSuccess(true);
         toast.success("Password reset successfully. You can now log in.");
         setTimeout(() => router.push("/login"), 2000); // Redirect after success
@@ -62,9 +62,7 @@ export default function ResetPasswordPage() {
 
       {success ? (
         <div>
-          <h2 className="text-2xl text-green-500">
-            Password Reset Successfully
-          </h2>
+          <h2 className="text-2xl text-black">Password Reset Successfully</h2>
         </div>
       ) : (
         <div className="flex flex-col gap-4">
@@ -73,7 +71,7 @@ export default function ResetPasswordPage() {
             placeholder="Enter new password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="border p-2"
+            className="border p-2 text-black"
           />
           <button onClick={handleResetPassword} className="defaultButton">
             Reset Password
