@@ -10,6 +10,14 @@ DBconnect();
 export async function POST(request: NextRequest) {
   try {
     const { email } = await request.json();
+
+    if (!email) {
+      return NextResponse.json(
+        { error: "Email is required." },
+        { status: 400 }
+      );
+    }
+
     const normalizedEmail = email.toLowerCase();
     const user = await UserModel.findOne({ email: normalizedEmail });
 
@@ -36,9 +44,11 @@ export async function POST(request: NextRequest) {
       emailType: "RESET",
       userId: user._id,
       resetToken,
-    });
+    }).catch(console.error);
 
-    return NextResponse.json({ message: "Reset email sent successfully." });
+    return NextResponse.json({
+      message: "Reset email sent successfully, if email exists",
+    });
   } catch (error: unknown) {
     console.error("Password reset request error:", error);
 
