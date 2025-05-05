@@ -266,9 +266,9 @@ export default function ActionWindow({
           </div>
 
           {/* Action Buttons */}
-          <ul className="flex flex-wrap space-x-4">
+          <ul className="flex flex-wrap justify-center space-x-4">
             {userActions.filter(showAction).map((action) => (
-              <li key={action.actionType} className="flex-shrink-0">
+              <li key={action.actionType} className="mx-2">
                 <Button onClick={() => handleClick(action)} addedClass="w-full">
                   {action.actionType}
                 </Button>
