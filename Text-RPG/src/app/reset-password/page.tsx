@@ -11,8 +11,10 @@ export default function EmailResetRequestPage() {
       await axios.post("/api/auth/reset", { email });
       toast.success("Check your email for the reset link.", { duration: 6000 });
     } catch (error: unknown) {
-      if (error instanceof Error) {
-        toast(error.message, { duration: 6000 });
+      if (axios.isAxiosError(error)) {
+        toast(error.response?.data?.error || "Something went wrong", {
+          duration: 6000,
+        });
       } else {
         toast("Something went wrong.", { duration: 6000 });
       }
