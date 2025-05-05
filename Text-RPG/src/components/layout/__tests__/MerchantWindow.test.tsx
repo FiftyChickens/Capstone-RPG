@@ -55,7 +55,7 @@ describe("MerchantWindow", () => {
       expect(mockedAxios.post).toHaveBeenCalledWith("/api/dashboard/items", {
         itemIds: "item1",
       });
-      expect(mockedAxios.patch).toHaveBeenCalledWith("/api/dashboard/user", {
+      expect(mockedAxios.patch).toHaveBeenCalledWith("/api/dashboard/users", {
         updateGold: -50,
       });
     });

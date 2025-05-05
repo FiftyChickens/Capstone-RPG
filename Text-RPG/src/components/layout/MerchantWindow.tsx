@@ -48,13 +48,13 @@ const MerchantWindow = ({
         const updateGold = -price;
 
         if (maxHealthIncrease || damageIncrease) {
-          await axios.patch("/api/dashboard/user", {
+          await axios.patch("/api/dashboard/users", {
             maxHealthIncrease,
             damageIncrease,
             updateGold,
           });
         } else {
-          await axios.patch("/api/dashboard/user", { updateGold });
+          await axios.patch("/api/dashboard/users", { updateGold });
         }
       } catch (error: unknown) {
         const errorMessage = "Error purchasing item";

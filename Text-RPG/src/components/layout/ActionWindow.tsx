@@ -119,13 +119,13 @@ export default function ActionWindow({
         setLogs((prev) => [...prev, ...newLogs]);
 
         if (maxHealthIncrease || damageIncrease) {
-          await axios.patch("/api/dashboard/user", {
+          await axios.patch("/api/dashboard/users", {
             maxHealthIncrease,
             damageIncrease,
           });
         }
 
-        await axios.post("/api/dashboard/completedActions", {
+        await axios.post("/api/dashboard/completed-actions", {
           actionId: action._id,
         });
       } catch (error: unknown) {
@@ -186,7 +186,7 @@ export default function ActionWindow({
           questId: action.quest,
         });
         const actionId = action._id;
-        await axios.post("/api/dashboard/completedActions", { actionId });
+        await axios.post("/api/dashboard/completed-actions", { actionId });
       } catch (error: unknown) {
         console.error("Error starting quest:", error);
       }
@@ -217,7 +217,7 @@ export default function ActionWindow({
         console.error("Error fetching enemy data:", error);
       }
     } else if (actionName === "Rest" || "setCamp") {
-      axios.patch("/api/dashboard/user", { updateHealth: maxHealth });
+      axios.patch("/api/dashboard/users", { updateHealth: maxHealth });
       newLogs.push(`Health is restored, you feel well rested.`);
       setLogs((prev) => [...prev, ...newLogs]);
     }

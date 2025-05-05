@@ -125,7 +125,7 @@ const CombatWindow = ({
         const updateHealth = (prevHealth -=
           applyRandomOffset(enemy?.damage, -2, -7) || 0);
         axios
-          .patch("/api/dashboard/user", { updateHealth: updateHealth })
+          .patch("/api/dashboard/users", { updateHealth: updateHealth })
           .catch((error) => {
             console.error("error updating user health:", error);
           });
@@ -138,7 +138,7 @@ const CombatWindow = ({
       ]);
     } else {
       setLogs((prev) => [...prev, `You got away safely!`]);
-      axios.patch("/api/dashboard/user", { updateHealth: userHealth });
+      axios.patch("/api/dashboard/users", { updateHealth: userHealth });
     }
     setEnemy(undefined);
     handleUserDefeat();
@@ -161,13 +161,13 @@ const CombatWindow = ({
     }
 
     try {
-      await axios.patch("/api/dashboard/user", { updateHealth: userHealth });
-      await axios.patch("/api/dashboard/user", {
+      await axios.patch("/api/dashboard/users", { updateHealth: userHealth });
+      await axios.patch("/api/dashboard/users", {
         increaseXP,
       });
 
       if (String(itemIds) === gold) {
-        await axios.patch("/api/dashboard/user", { updateGold });
+        await axios.patch("/api/dashboard/users", { updateGold });
       } else {
         await axios.post("/api/dashboard/items", { itemIds });
       }
@@ -190,7 +190,7 @@ const CombatWindow = ({
   const handleUserDefeat = async () => {
     if (userHealth <= 0)
       try {
-        await axios.patch("/api/dashboard/user", { healAmount: 0 }); // Set health to 0
+        await axios.patch("/api/dashboard/users", { healAmount: 0 }); // Set health to 0
       } catch (error: unknown) {
         console.error("error updating user health:", error);
       } finally {

@@ -84,7 +84,7 @@ export default function QuestInventoryWindow({
             setUsersTurn(false);
             setUserHealth((prev) => Math.min(prev + healAmount, userMaxHealth));
           } else {
-            await axios.patch("/api/dashboard/user", {
+            await axios.patch("/api/dashboard/users", {
               healAmount: healAmount,
             });
           }
@@ -104,7 +104,9 @@ export default function QuestInventoryWindow({
   const handleSellItem = async (itemId: string, itemStats: IItemId) => {
     try {
       await axios.patch("/api/dashboard/items", { useItemId: itemId });
-      await axios.patch("/api/dashboard/user", { updateGold: itemStats.value });
+      await axios.patch("/api/dashboard/users", {
+        updateGold: itemStats.value,
+      });
       setLogs((prev) => [
         ...prev,
         `Sold ${itemStats.name} for ${itemStats.value} gold`,
@@ -130,7 +132,7 @@ export default function QuestInventoryWindow({
         sellQuantity: quantity,
       });
       // update gold
-      await axios.patch("/api/dashboard/user", {
+      await axios.patch("/api/dashboard/users", {
         updateGold: totalValue,
       });
 
@@ -162,7 +164,7 @@ export default function QuestInventoryWindow({
     if (!quest) return;
 
     try {
-      const response = await axios.patch("/api/dashboard/user", {
+      const response = await axios.patch("/api/dashboard/users", {
         questId: quest.questId._id,
         questProgressIncrease: 1,
       });
@@ -281,8 +283,8 @@ export default function QuestInventoryWindow({
                       ? "Sell All"
                       : "Sell"
                     : item.itemId.type === "potion"
-                      ? "Use"
-                      : ""
+                    ? "Use"
+                    : ""
                 }
               />
             ))}

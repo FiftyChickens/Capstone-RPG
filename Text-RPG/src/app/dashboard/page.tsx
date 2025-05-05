@@ -55,7 +55,7 @@ export default function DashboardPage() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const res = await axios.get("/api/dashboard/user");
+        const res = await axios.get("/api/dashboard/users");
         setUserInfo(res.data.user); // Update user info
       } catch (error: unknown) {
         console.error("Error fetching user data:", error);

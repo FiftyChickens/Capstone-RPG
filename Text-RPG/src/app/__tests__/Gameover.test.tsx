@@ -50,7 +50,7 @@ describe("GameoverPage", () => {
     fireEvent.click(screen.getByText("Retry"));
 
     await waitFor(() => {
-      expect(mockedAxios.post).toHaveBeenCalledWith("/api/dashboard/user");
+      expect(mockedAxios.post).toHaveBeenCalledWith("/api/dashboard/users");
       expect(mockPush).toHaveBeenCalledWith("/dashboard");
       expect(mockConsoleError).not.toHaveBeenCalled();
     });
@@ -73,7 +73,7 @@ describe("GameoverPage", () => {
     fireEvent.click(screen.getByText("Retry"));
 
     await waitFor(() => {
-      expect(mockedAxios.post).toHaveBeenCalledWith("/api/dashboard/user");
+      expect(mockedAxios.post).toHaveBeenCalledWith("/api/dashboard/users");
       expect(mockPush).toHaveBeenCalledWith("/dashboard");
       expect(mockConsoleError).toHaveBeenCalledWith(
         "Error resetting user data:",
