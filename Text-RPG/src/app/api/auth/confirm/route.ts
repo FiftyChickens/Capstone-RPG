@@ -5,12 +5,30 @@ import bcryptjs from "bcryptjs";
 
 DBconnect();
 
-export async function POST(request: NextRequest) {
+export async function PATCH(request: NextRequest) {
   try {
     const { token, password } = await request.json();
     if (!token || !password) {
       return NextResponse.json(
         { error: "Invalid request. Token and password are required." },
+        { status: 400 }
+      );
+    }
+
+    function hasSpecialCharacter(password: string) {
+      const specialCharRegex = /[^a-zA-Z0-9]/;
+      return specialCharRegex.test(password);
+    }
+
+    if (password.length < 5) {
+      return NextResponse.json(
+        { error: "Password must be at least 5 characters." },
+        { status: 400 }
+      );
+    }
+    if (!hasSpecialCharacter(password)) {
+      return NextResponse.json(
+        { error: "Password must contain at least one special character" },
         { status: 400 }
       );
     }
@@ -44,9 +62,12 @@ export async function POST(request: NextRequest) {
     user.forgotPasswordTokenExpiry = null; // Remove expiry
     await user.save();
 
-    return NextResponse.json({
-      message: "Password reset successfully. You can now log in.",
-    });
+    return NextResponse.json(
+      {
+        message: "Password reset successfully. You can now log in.",
+      },
+      { status: 200 }
+    );
   } catch (error: unknown) {
     let errorMessage = "Error restting password.";
     if (error instanceof Error) {
