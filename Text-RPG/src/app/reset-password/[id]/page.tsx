@@ -35,7 +35,7 @@ export default function ResetPasswordPage() {
       timer += 3000;
     } else {
       try {
-        await axios.patch("/api/auth/confirm", { token, password });
+        await axios.patch("/api/auth/password/confirm", { token, password });
         setSuccess(true);
         toast.success("Password reset successfully. You can now log in.");
         setTimeout(() => router.push("/login"), 2000); // Redirect after success

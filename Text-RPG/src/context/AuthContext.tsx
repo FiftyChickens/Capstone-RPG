@@ -40,7 +40,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const checkAuthStatus = async () => {
       try {
-        const res = await fetch("/api/auth/validate", {
+        const res = await fetch("/api/auth/sessions/me", {
           cache: "no-store",
         });
 

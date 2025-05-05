@@ -8,7 +8,7 @@ export default function EmailResetRequestPage() {
 
   const handleRequest = async () => {
     try {
-      await axios.post("/api/auth/reset", { email });
+      await axios.post("/api/auth/password/reset", { email });
       toast.success("Check your email for the reset link.", { duration: 6000 });
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {

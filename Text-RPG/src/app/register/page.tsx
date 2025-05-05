@@ -6,7 +6,7 @@ import axios, { AxiosError } from "axios";
 import CustomInput from "@/components/ui/CustomInput";
 import toast, { Toaster } from "react-hot-toast";
 
-export default function SignupPage() {
+export default function RegisterPage() {
   const router = useRouter();
   const [user, setUser] = React.useState({
     email: "",
@@ -79,7 +79,7 @@ export default function SignupPage() {
 
     try {
       setLoading(true);
-      const response = await axios.post("/api/auth/signup", user);
+      const response = await axios.post("/api/auth/register", user);
 
       if (response.status === 201) {
         if (toastIdRef.current) toast.dismiss(toastIdRef.current);
