@@ -71,7 +71,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = async () => {
     try {
-      await axios.get("/api/auth/logout");
+      await axios.delete("/api/auth/logout");
     } catch (error: unknown) {
       if (error instanceof AxiosError) {
         console.error(
