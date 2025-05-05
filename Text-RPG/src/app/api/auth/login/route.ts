@@ -6,14 +6,14 @@ import jwt from "jsonwebtoken";
 
 DBconnect();
 
-interface LoginRequest {
+interface SessionRequest {
   email: string;
   password: string;
 }
 
 export async function POST(request: NextRequest) {
   try {
-    const reqBody: LoginRequest = await request.json();
+    const reqBody: SessionRequest = await request.json();
     const { email, password } = reqBody;
 
     const normalizedEmail = email.toLowerCase();
@@ -37,23 +37,22 @@ export async function POST(request: NextRequest) {
     }
 
     //create token data
-    const tokenData = {
-      id: user._id,
-      username: user.username,
-      email: user.email,
-    };
-    //create token
-    const token = jwt.sign(tokenData, process.env.JWT_SECRET!, {
-      expiresIn: "1d",
-    });
+    const token = jwt.sign(
+      {
+        id: user._id,
+        username: user.username,
+        email: user.email,
+      },
+      process.env.JWT_SECRET!,
+      { expiresIn: "1d" }
+    );
 
     const response = NextResponse.json({
       message: "Login successful",
       success: true,
-      token,
     });
 
-    response.cookies.set("token", token, {
+    response.cookies.set("session", token, {
       httpOnly: true, // Makes it inaccessible to JavaScript
       secure: process.env.NODE_ENV === "production", // Secure only in production
       sameSite: "strict",
