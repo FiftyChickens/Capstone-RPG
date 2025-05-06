@@ -11,7 +11,7 @@ const GameoverPage = () => {
 
   async function handleRetry() {
     try {
-      await axios.post("/api/dashboard/users");
+      await axios.post("/api/dashboard/users/reset");
     } catch (error) {
       console.error("Error resetting user data:", error);
     }

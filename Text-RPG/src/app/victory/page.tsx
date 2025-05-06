@@ -10,7 +10,7 @@ const VictoryPage = () => {
 
   async function handleRetry() {
     try {
-      const response = await axios.post("/api/dashboard/users");
+      const response = await axios.post("/api/dashboard/users/reset");
       if (response.data.message === "User data reset successfully") {
       }
     } catch (error) {

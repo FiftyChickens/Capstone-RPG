@@ -1,4 +1,3 @@
-// QuestInventoryWindow.tsx
 "use client";
 
 import { IEnemy } from "@/interfaces/enemy.interface";
@@ -70,7 +69,9 @@ export default function QuestInventoryWindow({
             ...prev,
             `Used ${itemStats.name} dealing ${damageAmount} damage to ${enemy.name}`,
           ]);
-          await axios.patch("/api/dashboard/items", { useItemId: itemId });
+          await axios.patch("/api/dashboard/users/items", {
+            useItemId: itemId,
+          });
         } catch (error) {
           console.error("Error using item:", error);
         } finally {
@@ -84,11 +85,13 @@ export default function QuestInventoryWindow({
             setUsersTurn(false);
             setUserHealth((prev) => Math.min(prev + healAmount, userMaxHealth));
           } else {
-            await axios.patch("/api/dashboard/users", {
+            await axios.patch("/api/dashboard/users/stats", {
               healAmount: healAmount,
             });
           }
-          await axios.patch("/api/dashboard/items", { useItemId: itemId });
+          await axios.patch("/api/dashboard/users/items", {
+            useItemId: itemId,
+          });
           setLogs((prev) => [
             ...prev,
             `Used ${itemStats.name} restoring ${healAmount} health.`,
@@ -101,10 +104,11 @@ export default function QuestInventoryWindow({
       }
     }
   };
+
   const handleSellItem = async (itemId: string, itemStats: IItemId) => {
     try {
-      await axios.patch("/api/dashboard/items", { useItemId: itemId });
-      await axios.patch("/api/dashboard/users", {
+      await axios.patch("/api/dashboard/users/items", { useItemId: itemId });
+      await axios.patch("/api/dashboard/users/stats", {
         updateGold: itemStats.value,
       });
       setLogs((prev) => [
@@ -126,13 +130,11 @@ export default function QuestInventoryWindow({
     try {
       const totalValue = itemStats.value * quantity;
 
-      // delete all items of this type
-      await axios.patch("/api/dashboard/items", {
+      await axios.patch("/api/dashboard/users/items", {
         sellItemIds: itemId,
         sellQuantity: quantity,
       });
-      // update gold
-      await axios.patch("/api/dashboard/users", {
+      await axios.patch("/api/dashboard/users/stats", {
         updateGold: totalValue,
       });
 
@@ -164,12 +166,12 @@ export default function QuestInventoryWindow({
     if (!quest) return;
 
     try {
-      const response = await axios.patch("/api/dashboard/users", {
+      const response = await axios.patch("/api/dashboard/users/quests", {
         questId: quest.questId._id,
-        questProgressIncrease: 1,
+        progressIncrease: 1,
       });
 
-      if (response.data.message === "Quest completed!") {
+      if (response.data.message === "Quest completed") {
         const rewards = response.data.rewards;
         setLogs((prev) => [
           ...prev,
@@ -221,6 +223,7 @@ export default function QuestInventoryWindow({
         break;
     }
   };
+
   return (
     <div className="space-y-2">
       <div className="flex flex-row justify-evenly gap-2 mt-2">

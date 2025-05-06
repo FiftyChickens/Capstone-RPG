@@ -11,7 +11,7 @@ interface MerchantWindowProps {
   usersGold: number;
   setUpdate: React.Dispatch<React.SetStateAction<boolean>>;
   setLogs: React.Dispatch<React.SetStateAction<string[]>>;
-  userInventory: Array<{ itemId: { _id: string; name: string } }>; // Add user inventory prop
+  userInventory: Array<{ itemId: { _id: string; name: string } }>;
 }
 
 const MerchantWindow = ({
@@ -20,7 +20,7 @@ const MerchantWindow = ({
   usersGold,
   setUpdate,
   setLogs,
-  userInventory, // Receive user inventory
+  userInventory,
 }: MerchantWindowProps) => {
   const handleLeave = () => {
     isMerchantOpen(false);
@@ -33,7 +33,7 @@ const MerchantWindow = ({
     if (usersGold >= price) {
       try {
         const itemIds = item._id;
-        await axios.post("/api/dashboard/items", { itemIds });
+        await axios.post("/api/dashboard/users/items", { itemIds });
 
         if (item.effect.includes("Increases attack damage by")) {
           damageIncrease += parseInt(item.effect.match(/\d+/)?.[0] || "0", 10);
@@ -48,13 +48,13 @@ const MerchantWindow = ({
         const updateGold = -price;
 
         if (maxHealthIncrease || damageIncrease) {
-          await axios.patch("/api/dashboard/users", {
+          await axios.patch("/api/dashboard/users/stats", {
             maxHealthIncrease,
             damageIncrease,
             updateGold,
           });
         } else {
-          await axios.patch("/api/dashboard/users", { updateGold });
+          await axios.patch("/api/dashboard/users/stats", { updateGold });
         }
       } catch (error: unknown) {
         const errorMessage = "Error purchasing item";
@@ -64,11 +64,10 @@ const MerchantWindow = ({
         setUpdate((prev) => !prev);
       }
     } else {
-      setLogs((prev) => [...prev, `not enough gold`]);
+      setLogs((prev) => [...prev, `Not enough gold`]);
     }
   };
 
-  // List of special items that should be hidden if already in inventory
   const specialItems = [
     "Basic Sword",
     "Iron Shield",
@@ -77,16 +76,13 @@ const MerchantWindow = ({
     "Dragon Scale Shield",
   ];
 
-  // Filter shop items to hide special items that user already has
   const filteredShopItems = shopItems.filter((shopItem) => {
     const isSpecialItem = specialItems.includes(shopItem.itemId.name);
-
-    // If it's not a special item, always show it
-    if (!isSpecialItem) return true;
-
-    // If it is a special item, only show if user doesn't have it
-    return !userInventory.some(
-      (invItem) => invItem.itemId.name === shopItem.itemId.name
+    return (
+      !isSpecialItem ||
+      !userInventory.some(
+        (invItem) => invItem.itemId.name === shopItem.itemId.name
+      )
     );
   });
 
@@ -115,10 +111,3 @@ const MerchantWindow = ({
 };
 
 export default MerchantWindow;
-
-// {
-//   "itemIds": "67ad2c5633ae5f1d35ec7bc2"
-// }
-// {
-//   "itemId": "67ad2c5633ae5f1d35ec7bc2"
-// }

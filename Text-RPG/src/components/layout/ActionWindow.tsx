@@ -1,5 +1,3 @@
-"use client";
-
 import { selectEnemyBasedOnChance } from "@/helpers/selectEnemyBasedOnChance";
 import { IEnemy } from "@/interfaces/enemy.interface";
 import { IItem, IItemId } from "@/interfaces/items.interface";
@@ -45,16 +43,16 @@ export default function ActionWindow({
 }: ActionWindowProps) {
   const [userActions, setUserActions] = useState<IAction[]>(location.actions);
   const [shopItems, setShopItems] = useState<IItemForSale[]>([]);
-  useEffect(() => /* sets action per location */ {
+
+  useEffect(() => {
     setUserActions(location.actions);
   }, [location]);
 
-  useEffect(() => /* adds logs for specific actions */ {
+  useEffect(() => {
     setLogs((prevLogs) => {
       userActions.forEach((action) => {
         if (!completedActions.includes(action._id)) {
           let logMessage = "";
-
           const actionName = action.actionType;
 
           if (actionName === "Gather Items") {
@@ -74,7 +72,6 @@ export default function ActionWindow({
               "A High ranking elf has followed you out of the village, they say: \n If you prove you're strong enough to defeat the dragon we will reveal the path. \n otherwise youll only put our lives at risk.";
           }
           if (logMessage && prevLogs[prevLogs.length - 1] !== logMessage) {
-            // Skip if the last log is the same as the current log
             prevLogs.push(logMessage);
           }
         }
@@ -88,10 +85,13 @@ export default function ActionWindow({
     onActionClick(action);
     const newLogs: string[] = [];
     const actionName = action.actionType;
+
     if (action.items) {
       const itemIds = action.items.map((item) => String(item));
       try {
-        const response = await axios.post("/api/dashboard/items", { itemIds });
+        const response = await axios.post("/api/dashboard/users/items", {
+          itemIds,
+        });
         const items = response.data.addedItems;
 
         let maxHealthIncrease = 0;
@@ -119,7 +119,7 @@ export default function ActionWindow({
         setLogs((prev) => [...prev, ...newLogs]);
 
         if (maxHealthIncrease || damageIncrease) {
-          await axios.patch("/api/dashboard/users", {
+          await axios.patch("/api/dashboard/users/stats", {
             maxHealthIncrease,
             damageIncrease,
           });
@@ -176,7 +176,7 @@ export default function ActionWindow({
         await axios.post("/api/dashboard/locations", {
           locationId: action.destination,
         });
-        setMoved((prev) => !prev); // Trigger Dashboard to fetch new location data
+        setMoved((prev) => !prev);
       } catch (error: unknown) {
         console.error("Error changing location:", error);
       }
@@ -216,28 +216,41 @@ export default function ActionWindow({
       } catch (error: unknown) {
         console.error("Error fetching enemy data:", error);
       }
-    } else if (actionName === "Rest" || "setCamp") {
-      axios.patch("/api/dashboard/users", { updateHealth: maxHealth });
-      newLogs.push(`Health is restored, you feel well rested.`);
-      setLogs((prev) => [...prev, ...newLogs]);
+    } else if (actionName === "Rest") {
+      try {
+        // Update health on the server
+        const response = await axios.patch("/api/dashboard/users/stats", {
+          updateHealth: maxHealth,
+        });
+
+        // Update local state with the new health value
+        if (response.data?.stats?.health) {
+          setUpdate((prev) => !prev);
+        }
+
+        newLogs.push(`Health is restored, you feel well rested.`);
+        setLogs((prev) => [...prev, ...newLogs]);
+      } catch (error) {
+        console.error("Error during rest:", error);
+        newLogs.push("Failed to rest and recover health.");
+        setLogs((prev) => [...prev, ...newLogs]);
+      }
     }
+
     setUpdate((prev) => !prev);
   };
 
   const showAction = (action: IAction) => {
     const actionName = action.actionType;
     {
-      // Skip if action is already completed
       if (completedActions.includes(action._id)) {
         return false;
       }
 
-      // Skip Wander action if action not completed
       if (actionName === "Wander") {
         return completedActions.includes("67e2d82018d373ec4404b981");
       }
 
-      // Skip Elven Village if specific quest is not completed
       if (actionName === "Elven Village") {
         const hasCompletedElvenQuest = completedQuests.some(
           (quest) => quest._id.toString() === "67e2d6bb18d373ec4404b97c"
@@ -251,7 +264,6 @@ export default function ActionWindow({
         );
         return hasCompletedElvenQuest;
       }
-      // Show all other actions by default
       return true;
     }
   };
@@ -265,7 +277,6 @@ export default function ActionWindow({
             <p className="text-md text-center">{location.description}</p>
           </div>
 
-          {/* Action Buttons */}
           <ul className="flex flex-wrap justify-center space-x-4">
             {userActions.filter(showAction).map((action) => (
               <li key={action.actionType} className="mx-2">

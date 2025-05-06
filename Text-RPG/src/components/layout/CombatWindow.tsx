@@ -17,6 +17,12 @@ interface CombatWindowProps {
   setLogs: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
+interface IStatsPayload {
+  updateHealth?: number;
+  increaseXP?: number;
+  updateGold?: number;
+}
+
 const CombatWindow = ({
   enemy,
   setEnemy,
@@ -68,7 +74,6 @@ const CombatWindow = ({
     }
   }, [enemy, userHealth]);
 
-  // Update user health after a short delay (simulate enemy attack)
   useEffect(() => {
     if (!enemy || usersTurn || enemy.health <= 0) return;
 
@@ -114,35 +119,56 @@ const CombatWindow = ({
     });
   };
 
-  const handleFlee = () => {
+  const calculateFleeSuccess = () => {
+    const levelDifference = userInfo.stats.level - (enemy?.level || 0);
+    const baseChance = 0.6; // 60% base chance to flee
+    const levelBonus = levelDifference * 0.05; // 5% per level difference
+    return Math.random() < baseChance + levelBonus;
+  };
+
+  const handleFlee = async () => {
     if (!enemy) return;
-    const hitchance = Math.floor(
-      Math.random() * 3 + Math.floor(userInfo.stats.level / enemy.level)
-    );
 
-    if (hitchance >= 1) {
-      setUserHealth((prevHealth) => {
-        const updateHealth = (prevHealth -=
-          applyRandomOffset(enemy?.damage, -2, -7) || 0);
-        axios
-          .patch("/api/dashboard/users", { updateHealth: updateHealth })
-          .catch((error) => {
-            console.error("error updating user health:", error);
-          });
+    const fleeSuccess = calculateFleeSuccess();
 
-        return updateHealth;
-      });
-      setLogs((prev) => [
-        ...prev,
-        `You took ${enemy?.damage} damage getting away.`,
-      ]);
-    } else {
-      setLogs((prev) => [...prev, `You got away safely!`]);
-      axios.patch("/api/dashboard/users", { updateHealth: userHealth });
+    try {
+      if (fleeSuccess) {
+        // Success case - sync current health with backend
+        await axios.patch("/api/dashboard/users/stats", {
+          updateHealth: userHealth, // Send current health to keep it in sync
+        });
+        setLogs((prev) => [...prev, `You got away safely!`]);
+      } else {
+        // Failed case - take damage
+        const damageTaken = applyRandomOffset(enemy.damage, -2, 2);
+        const newHealth = Math.max(0, userHealth - damageTaken);
+
+        // Update local state immediately
+        setUserHealth(newHealth);
+
+        // Sync with server
+        await axios.patch("/api/dashboard/users/stats", {
+          updateHealth: newHealth,
+        });
+
+        setLogs((prev) => [
+          ...prev,
+          `You took ${damageTaken} damage while fleeing!`,
+        ]);
+
+        if (newHealth <= 0) {
+          handleUserDefeat();
+        }
+      }
+    } catch (error) {
+      console.error("Failed to update health:", error);
+      // Optionally show error to user
+      setLogs((prev) => [...prev, "Failed to update health after fleeing"]);
+    } finally {
+      // Always clear enemy and trigger update
+      setEnemy(undefined);
+      setUpdate((prev) => !prev);
     }
-    setEnemy(undefined);
-    handleUserDefeat();
-    setUpdate((prev) => !prev);
   };
 
   const handleEnemyDefeat = async () => {
@@ -150,9 +176,9 @@ const CombatWindow = ({
 
     const randomItem =
       enemy.drop[Math.floor(Math.random() * enemy.drop.length)];
-    const itemIds = [randomItem.itemId._id];
-    const gold = "67ad2c5633ae5f1d35ec7bc5";
-    const increaseXP = applyRandomOffset(enemy.level * 3, -3, 7); // Reward XP
+    const itemId = randomItem.itemId._id; // Get the item ID directly
+    const goldId = "67ad2c5633ae5f1d35ec7bc5";
+    const increaseXP = applyRandomOffset(enemy.level * 3, -3, 7);
     const updateGold = randomItem.quantity;
 
     if (enemy?.name === "Dragon" && enemy.health <= 0) {
@@ -161,25 +187,48 @@ const CombatWindow = ({
     }
 
     try {
-      await axios.patch("/api/dashboard/users", { updateHealth: userHealth });
-      await axios.patch("/api/dashboard/users", {
+      // First update stats (XP, health, and gold if applicable)
+      const statsPayload: Record<string, number> = {
+        updateHealth: userHealth,
         increaseXP,
-      });
+      };
 
-      if (String(itemIds) === gold) {
-        await axios.patch("/api/dashboard/users", { updateGold });
-      } else {
-        await axios.post("/api/dashboard/items", { itemIds });
+      // If the dropped item is gold, add to stats update
+      if (itemId === goldId) {
+        statsPayload.updateGold = updateGold;
       }
+
+      const statsResponse = await axios.patch(
+        "/api/dashboard/users/stats",
+        statsPayload
+      );
+
+      // If the dropped item is NOT gold, add to inventory
+      if (itemId !== goldId) {
+        try {
+          await axios.post("/api/dashboard/users/items", {
+            itemIds: [itemId],
+          });
+        } catch (itemError) {
+          console.error("Failed to add item to inventory:", itemError);
+          setLogs((prev) => [...prev, "Failed to add item to inventory"]);
+        }
+      }
+
       setLogs((prev) => [
         ...prev,
-
         `${enemy?.name} defeated, ${
           randomItem.quantity
         } ${randomItem.itemId.name.toLowerCase()} and ${increaseXP} XP gained.`,
       ]);
+
+      // Update local state based on response if needed
+      if (statsResponse.data?.stats?.health) {
+        setUserHealth(statsResponse.data.stats.health);
+      }
     } catch (error: unknown) {
-      console.error("error defeating enemy:", error);
+      console.error("Error defeating enemy:", error);
+      setLogs((prev) => [...prev, "Failed to update stats after victory"]);
     } finally {
       setUpdate((prev) => !prev);
       setEnemy(undefined);
@@ -190,7 +239,7 @@ const CombatWindow = ({
   const handleUserDefeat = async () => {
     if (userHealth <= 0)
       try {
-        await axios.patch("/api/dashboard/users", { healAmount: 0 }); // Set health to 0
+        await axios.patch("/api/dashboard/users/stats", { healAmount: 0 });
       } catch (error: unknown) {
         console.error("error updating user health:", error);
       } finally {

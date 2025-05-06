@@ -19,7 +19,7 @@ const LogWindow: React.FC<LogWindowProps> = ({ logs }) => {
     return (
       <div
         ref={logContainerRef}
-        className="flex flex-col justify-center items-center text-center border-2 border-[#754e1a] rounded-lg max-h-[15rem] w-full overflow-y-auto"
+        className="flex flex-col justify-center items-center text-center border-2 border-[#754e1a] rounded-lg max-h-[13rem] w-full overflow-y-auto"
       >
         {logs.slice().map((log, index) => (
           <p

@@ -33,6 +33,7 @@ export default function DashboardPage() {
       },
       totalPlaytime: 0,
     },
+    save() {},
   });
   const [moved, setMoved] = useState(false); // Track location change
   const [enemy, setEnemy] = useState<IEnemy | undefined>(undefined);
