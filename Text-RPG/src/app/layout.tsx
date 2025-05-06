@@ -4,6 +4,8 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/NavBar";
 import { AuthProvider } from "@/context/AuthContext";
 import ReduxProvider from "../context/ReduxProvider";
+import ForceZoom from "@/components/layout/ForceZoom";
+import { Footer } from "../components/layout/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,10 +32,12 @@ export default function RootLayout({
       <body
         className={`bg-[#CBA35C] overflow-hidden ${geistSans.variable} ${geistMono.variable} antialiased text-xl`}
       >
+        <ForceZoom />
         <AuthProvider>
           <ReduxProvider>
             <Navbar />
             <div className="pt-[64px]">{children}</div>
+            <Footer />
           </ReduxProvider>
         </AuthProvider>
       </body>
