@@ -14,6 +14,7 @@ export interface IStats {
 }
 
 export interface IUser {
+  save(): unknown;
   username: string;
   email?: string;
   password?: string;

@@ -1,5 +1,5 @@
 import mongoose, { Schema, model, Types } from "mongoose";
-import { IUser } from "../interfaces/user.interface";
+import { IStats, IUser } from "../interfaces/user.interface";
 
 const StatsSchema = new Schema({
   level: { type: Number, default: 1 },
