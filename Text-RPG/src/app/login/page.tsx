@@ -99,7 +99,7 @@ export default function LoginPage() {
       >
         {buttonDisabled ? "Enter valid credentials" : "Login here"}
       </button>
-      <Link href="/signup" className="my-4">
+      <Link href="/register" className="my-4">
         Visit sign up page
       </Link>
       <Link href="/reset-password">Forgot password</Link>

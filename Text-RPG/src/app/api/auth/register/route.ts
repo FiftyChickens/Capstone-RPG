@@ -7,7 +7,7 @@ import { UserModel } from "@/models/user.model";
 
 DBconnect();
 
-interface SignupRequest {
+interface RegisterRequest {
   username: string;
   email: string;
   password: string;
@@ -23,7 +23,7 @@ function isValidEmail(email: string) {
   return emailRegex.test(email);
 }
 
-function validateUserInput(user: SignupRequest) {
+function validateUserInput(user: RegisterRequest) {
   const errors: string[] = [];
 
   if (user.username.length < 3) {
@@ -47,7 +47,7 @@ function validateUserInput(user: SignupRequest) {
 
 export async function POST(request: NextRequest) {
   try {
-    const reqBody: SignupRequest = await request.json();
+    const reqBody: RegisterRequest = await request.json();
     const { username, email, password } = reqBody;
 
     const validation = validateUserInput(reqBody);

@@ -7,7 +7,7 @@ export async function middleware(request: NextRequest) {
   // Define public routes (excluding reset-password)
   const isPublicRoute = [
     "/login",
-    "/signup",
+    "/register",
     "/verifyemail",
     "/reset-password",
   ].some((route) => path.startsWith(route));
@@ -28,7 +28,7 @@ export async function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     "/login",
-    "/signup",
+    "/register",
     "/verifyemail",
     "/dashboard",
     "/gameover",

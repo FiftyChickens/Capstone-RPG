@@ -74,7 +74,7 @@ export default function RegisterPage() {
     return isValid;
   }
 
-  const onSignup = async () => {
+  const onRegister = async () => {
     if (!validateUserInput(user)) return;
 
     try {
@@ -87,7 +87,7 @@ export default function RegisterPage() {
         router.push("/verifyemail");
       }
     } catch (error: unknown) {
-      let errorMessage = "Signup failed";
+      let errorMessage = "Register failed";
 
       if (error instanceof AxiosError) {
         errorMessage = error.response?.data?.message || error.message;
@@ -118,7 +118,7 @@ export default function RegisterPage() {
       if (nextInputRef?.current) {
         nextInputRef.current.focus();
       } else {
-        onSignup();
+        onRegister();
       }
     }
   };
@@ -159,7 +159,7 @@ export default function RegisterPage() {
         placeholder="Password"
       />
       <button
-        onClick={onSignup}
+        onClick={onRegister}
         disabled={buttonDisabled}
         className={`defaultButton mb-4`}
       >

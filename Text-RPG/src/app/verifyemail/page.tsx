@@ -86,7 +86,7 @@ export default function VerifyEmailPage() {
           <h2 className="text-2xl mb-2">Error</h2>
           <p className="mb-4">{error}</p>
           <Link
-            href="/signup"
+            href="/register"
             className="p-2 border rounded-lg hover:bg-[#876c3c] hover:shadow-md"
           >
             Back to Sign Up

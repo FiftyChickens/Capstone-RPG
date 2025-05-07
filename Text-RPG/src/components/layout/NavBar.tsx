@@ -27,9 +27,9 @@ export function Navbar() {
       active: pathname === "/login",
     },
     !isLoggedIn && {
-      href: "/signup",
-      label: "Signup",
-      active: pathname === "/signup",
+      href: "/register",
+      label: "Register",
+      active: pathname === "/register",
     },
     isLoggedIn && {
       href: "/dashboard",
