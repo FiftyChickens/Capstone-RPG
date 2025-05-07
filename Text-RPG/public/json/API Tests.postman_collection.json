@@ -1,0 +1,968 @@
+{
+	"info": {
+		"_postman_id": "75b131df-ee23-4331-8914-5168e99f8361",
+		"name": "API Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40180731"
+	},
+	"item": [
+		{
+			"name": "Test register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"name": "cache-control",
+						"type": "text"
+					},
+					{
+						"key": "Postman-Token",
+						"value": "<calculated when request is sent>",
+						"name": "postman-token",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": "0",
+						"name": "content-length",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "<calculated when request is sent>",
+						"name": "host",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "PostmanRuntime/7.39.1",
+						"name": "user-agent",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"name": "accept",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"name": "accept-encoding",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"name": "connection",
+						"type": "text"
+					},
+					{
+						"key": "Key",
+						"value": "Content-Type",
+						"type": "text"
+					},
+					{
+						"key": "Value",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"test@test.com\",\r\n    \"password\": \"test!\",\r\n    \"username\": \"test\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dragon-slayer-text-rpg.vercel.app/api/auth/register",
+					"protocol": "https",
+					"host": [
+						"dragon-slayer-text-rpg",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Key",
+						"value": "Content-Type",
+						"type": "text"
+					},
+					{
+						"key": "Value",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"test@test.com\",\r\n    \"password\": \"test!\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dragon-slayer-text-rpg.vercel.app/api/auth/login",
+					"protocol": "https",
+					"host": [
+						"dragon-slayer-text-rpg",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test logout",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"name": "cache-control",
+						"type": "text"
+					},
+					{
+						"key": "Postman-Token",
+						"value": "<calculated when request is sent>",
+						"name": "postman-token",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "<calculated when request is sent>",
+						"name": "host",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "PostmanRuntime/7.39.1",
+						"name": "user-agent",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"name": "accept",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"name": "accept-encoding",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"name": "connection",
+						"type": "text"
+					},
+					{
+						"key": "Key",
+						"value": "Content-Type",
+						"type": "text"
+					},
+					{
+						"key": "Value",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://dragon-slayer-text-rpg.vercel.app/api/auth/logout",
+					"protocol": "https",
+					"host": [
+						"dragon-slayer-text-rpg",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test sessions",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Key",
+						"value": "Content-Type",
+						"type": "text"
+					},
+					{
+						"key": "Value",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://dragon-slayer-text-rpg.vercel.app/api/auth/sessions/me?Cookie=token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MWJiOWU5MDYzOGU2YWZmNTA5MmIxNiIsInVzZXJuYW1lIjoiS2lyYnkiLCJlbWFpbCI6InRAdC5jb20iLCJpYXQiOjE3NDY2NTUzMzcsImV4cCI6MTc0Njc0MTczN30.VxJ-DSl8OJx3NPR8mhTor-GOHsO7t7qIBsHbdZMfaFk",
+					"protocol": "https",
+					"host": [
+						"dragon-slayer-text-rpg",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"auth",
+						"sessions",
+						"me"
+					],
+					"query": [
+						{
+							"key": "Cookie",
+							"value": "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MWJiOWU5MDYzOGU2YWZmNTA5MmIxNiIsInVzZXJuYW1lIjoiS2lyYnkiLCJlbWFpbCI6InRAdC5jb20iLCJpYXQiOjE3NDY2NTUzMzcsImV4cCI6MTc0Njc0MTczN30.VxJ-DSl8OJx3NPR8mhTor-GOHsO7t7qIBsHbdZMfaFk"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test completed actions",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Key",
+						"value": "Content-Type",
+						"type": "text"
+					},
+					{
+						"key": "Value",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"actionId\": \"67ae4e221f7be1d2e20f48f0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dragon-slayer-text-rpg.vercel.app/api/dashboard/completed-actions",
+					"protocol": "https",
+					"host": [
+						"dragon-slayer-text-rpg",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"dashboard",
+						"completed-actions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test enemies",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Key",
+						"value": "Content-Type",
+						"type": "text"
+					},
+					{
+						"key": "Value",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"enemyIds\": [\r\n        \"681b8e529533541f201e6f68\",\r\n        \"681b8e529533541f201e6f6a\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dragon-slayer-text-rpg.vercel.app/api/dashboard/enemies",
+					"protocol": "https",
+					"host": [
+						"dragon-slayer-text-rpg",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"dashboard",
+						"enemies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test locations",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Key",
+						"value": "Content-Type",
+						"type": "text"
+					},
+					{
+						"key": "Value",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"locationId\": \"67ae4e221f7be1d2e20f48f0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dragon-slayer-text-rpg.vercel.app/api/dashboard/locations",
+					"protocol": "https",
+					"host": [
+						"dragon-slayer-text-rpg",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"dashboard",
+						"locations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test merchants",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MWJkNzFiMDUxNmI3ZGQyMDI1MTU0ZSIsInVzZXJuYW1lIjoidGVzdCIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImlhdCI6MTc0NjY1NTQ4NCwiZXhwIjoxNzQ2NzQxODg0fQ.oFU80A6fkyWrznZc8qGOTT0i8FL9lruxzHj3EMNh-rs",
+						"name": "cookie",
+						"type": "text"
+					},
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"name": "cache-control",
+						"type": "text"
+					},
+					{
+						"key": "Postman-Token",
+						"value": "<calculated when request is sent>",
+						"name": "postman-token",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "<calculated when request is sent>",
+						"name": "host",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "PostmanRuntime/7.39.1",
+						"name": "user-agent",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"name": "accept",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"name": "accept-encoding",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"name": "connection",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://dragon-slayer-text-rpg.vercel.app/api/dashboard/merchants/681ba76a9533541f201e6faf",
+					"protocol": "https",
+					"host": [
+						"dragon-slayer-text-rpg",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"dashboard",
+						"merchants",
+						"681ba76a9533541f201e6faf"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test quests",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MWJkNzFiMDUxNmI3ZGQyMDI1MTU0ZSIsInVzZXJuYW1lIjoidGVzdCIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImlhdCI6MTc0NjY1NTQ4NCwiZXhwIjoxNzQ2NzQxODg0fQ.oFU80A6fkyWrznZc8qGOTT0i8FL9lruxzHj3EMNh-rs",
+						"name": "cookie",
+						"type": "text"
+					},
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"name": "cache-control",
+						"type": "text"
+					},
+					{
+						"key": "Postman-Token",
+						"value": "<calculated when request is sent>",
+						"name": "postman-token",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "<calculated when request is sent>",
+						"name": "host",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "PostmanRuntime/7.39.1",
+						"name": "user-agent",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"name": "accept",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"name": "accept-encoding",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"name": "connection",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"questId\": \"681b8e849533541f201e6f87\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dragon-slayer-text-rpg.vercel.app/api/dashboard/quests",
+					"protocol": "https",
+					"host": [
+						"dragon-slayer-text-rpg",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"dashboard",
+						"quests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test users items",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MWJkNzFiMDUxNmI3ZGQyMDI1MTU0ZSIsInVzZXJuYW1lIjoidGVzdCIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImlhdCI6MTc0NjY1NTQ4NCwiZXhwIjoxNzQ2NzQxODg0fQ.oFU80A6fkyWrznZc8qGOTT0i8FL9lruxzHj3EMNh-rs",
+						"name": "cookie",
+						"type": "text"
+					},
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"name": "cache-control",
+						"type": "text"
+					},
+					{
+						"key": "Postman-Token",
+						"value": "<calculated when request is sent>",
+						"name": "postman-token",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "<calculated when request is sent>",
+						"name": "host",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "PostmanRuntime/7.39.1",
+						"name": "user-agent",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"name": "accept",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"name": "accept-encoding",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"name": "connection",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"itemIds\": [\r\n        \"681b8e659533541f201e6f7e\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dragon-slayer-text-rpg.vercel.app/api/dashboard/users/items",
+					"protocol": "https",
+					"host": [
+						"dragon-slayer-text-rpg",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"dashboard",
+						"users",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test users quests",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MWJkNzFiMDUxNmI3ZGQyMDI1MTU0ZSIsInVzZXJuYW1lIjoidGVzdCIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImlhdCI6MTc0NjY1NTQ4NCwiZXhwIjoxNzQ2NzQxODg0fQ.oFU80A6fkyWrznZc8qGOTT0i8FL9lruxzHj3EMNh-rs",
+						"name": "cookie",
+						"type": "text"
+					},
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"name": "cache-control",
+						"type": "text"
+					},
+					{
+						"key": "Postman-Token",
+						"value": "<calculated when request is sent>",
+						"name": "postman-token",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "<calculated when request is sent>",
+						"name": "host",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "PostmanRuntime/7.39.1",
+						"name": "user-agent",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"name": "accept",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"name": "accept-encoding",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"name": "connection",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"questId\": \"681b8e849533541f201e6f87\",\r\n    \"progressIncrease\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dragon-slayer-text-rpg.vercel.app/api/dashboard/users/quests",
+					"protocol": "https",
+					"host": [
+						"dragon-slayer-text-rpg",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"dashboard",
+						"users",
+						"quests"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test users reset",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MWJkNzFiMDUxNmI3ZGQyMDI1MTU0ZSIsInVzZXJuYW1lIjoidGVzdCIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImlhdCI6MTc0NjY1NTQ4NCwiZXhwIjoxNzQ2NzQxODg0fQ.oFU80A6fkyWrznZc8qGOTT0i8FL9lruxzHj3EMNh-rs",
+						"name": "cookie",
+						"type": "text"
+					},
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"name": "cache-control",
+						"type": "text"
+					},
+					{
+						"key": "Postman-Token",
+						"value": "<calculated when request is sent>",
+						"name": "postman-token",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "<calculated when request is sent>",
+						"name": "host",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "PostmanRuntime/7.39.1",
+						"name": "user-agent",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"name": "accept",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"name": "accept-encoding",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"name": "connection",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://dragon-slayer-text-rpg.vercel.app/api/dashboard/users/reset",
+					"protocol": "https",
+					"host": [
+						"dragon-slayer-text-rpg",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"dashboard",
+						"users",
+						"reset"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test users stats",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MWJkNzFiMDUxNmI3ZGQyMDI1MTU0ZSIsInVzZXJuYW1lIjoidGVzdCIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImlhdCI6MTc0NjY1NTQ4NCwiZXhwIjoxNzQ2NzQxODg0fQ.oFU80A6fkyWrznZc8qGOTT0i8FL9lruxzHj3EMNh-rs",
+						"name": "cookie",
+						"type": "text"
+					},
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"name": "cache-control",
+						"type": "text"
+					},
+					{
+						"key": "Postman-Token",
+						"value": "<calculated when request is sent>",
+						"name": "postman-token",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "<calculated when request is sent>",
+						"name": "host",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "PostmanRuntime/7.39.1",
+						"name": "user-agent",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"name": "accept",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"name": "accept-encoding",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"name": "connection",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"maxHealthIncrease\": 10,\r\n    \"damageIncrease\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dragon-slayer-text-rpg.vercel.app/api/dashboard/users/stats",
+					"protocol": "https",
+					"host": [
+						"dragon-slayer-text-rpg",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"dashboard",
+						"users",
+						"stats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test user",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MWJkNzFiMDUxNmI3ZGQyMDI1MTU0ZSIsInVzZXJuYW1lIjoidGVzdCIsImVtYWlsIjoidGVzdEB0ZXN0LmNvbSIsImlhdCI6MTc0NjY1NTQ4NCwiZXhwIjoxNzQ2NzQxODg0fQ.oFU80A6fkyWrznZc8qGOTT0i8FL9lruxzHj3EMNh-rs",
+						"name": "cookie",
+						"type": "text"
+					},
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"name": "cache-control",
+						"type": "text"
+					},
+					{
+						"key": "Postman-Token",
+						"value": "<calculated when request is sent>",
+						"name": "postman-token",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "<calculated when request is sent>",
+						"name": "host",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "PostmanRuntime/7.39.1",
+						"name": "user-agent",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"name": "accept",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"name": "accept-encoding",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"name": "connection",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"maxHealthIncrease\": 10,\r\n    \"damageIncrease\": 5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://dragon-slayer-text-rpg.vercel.app/api/dashboard/users",
+					"protocol": "https",
+					"host": [
+						"dragon-slayer-text-rpg",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"api",
+						"dashboard",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
