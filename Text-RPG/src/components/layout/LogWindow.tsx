@@ -26,7 +26,7 @@ const LogWindow: React.FC<LogWindowProps> = ({ logs }) => {
             key={index}
             className={` text-xl px-4 whitespace-pre-line ${
               index === logs.length - 1
-                ? "underline underline-offset-2 bg-[#b6cbbd] w-full  py-4"
+                ? "bg-[#b6cbbd] w-full  py-4"
                 : "bg-[#cba35c] w-full"
             }`}
           >

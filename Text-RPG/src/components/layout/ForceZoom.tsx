@@ -30,16 +30,9 @@ export default function ForceZoom() {
       passive: false,
     });
 
-    const meta = document.createElement("meta");
-    meta.name = "viewport";
-    meta.content =
-      "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no";
-    document.head.appendChild(meta);
-
     return () => {
       window.removeEventListener("keydown", blockZoom as EventListener);
       window.removeEventListener("wheel", blockZoom as EventListener);
-      document.head.removeChild(meta);
     };
   }, []);
 

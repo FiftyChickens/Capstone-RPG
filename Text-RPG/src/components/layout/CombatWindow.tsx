@@ -186,6 +186,8 @@ const CombatWindow = ({
       return;
     }
 
+    console.log(enemy.name);
+
     try {
       // First update stats (XP, health, and gold if applicable)
       const statsPayload: Record<string, number> = {

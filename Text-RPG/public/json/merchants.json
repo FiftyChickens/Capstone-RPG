@@ -1,49 +1,46 @@
-[
-  {
-    "name": "Town Merchant",
-    "location": "townSquare",
-    "itemsForSale": [
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bbd",
-        "price": 20,
-        "quantity": 10
-      },
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bbe",
-        "price": 30,
-        "quantity": 5
-      },
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bbf",
-        "price": 10,
-        "quantity": 15
-      },
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bc0",
-        "price": 20,
-        "quantity": 10
-      }
-    ]
+[{
+  "_id": {
+    "$oid": "681ba76a9533541f201e6faf"
   },
-  {
-    "name": "Elven Merchant",
-    "location": "elvenVillage",
-    "itemsForSale": [
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bc1",
-        "price": 100,
-        "quantity": 3
-      },
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bbf",
-        "price": 10,
-        "quantity": 5
-      },
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bc0",
-        "price": 20,
-        "quantity": 8
-      }
-    ]
-  }
-]
+  "name": "Town Merchant",
+  "location": "townSquare",
+  "itemsForSale": [
+    {
+      "itemId": "681b8e659533541f201e6f72",
+      "price": 15
+    },
+    {
+      "itemId": "681b8e659533541f201e6f73",
+      "price": 30
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "681ba76a9533541f201e6fb0"
+  },
+  "name": "Elven Merchant",
+  "location": "elvenVillage",
+  "itemsForSale": [
+    {
+      "itemId": "681b8e659533541f201e6f74",
+      "price": 150
+    },
+    {
+      "itemId": "681b8e659533541f201e6f75",
+      "price": 150
+    },
+    {
+      "itemId": "681b8e659533541f201e6f76",
+      "price": 200
+    },
+    {
+      "itemId": "681b8e659533541f201e6f77",
+      "price": 80
+    },
+    {
+      "itemId": "681b8e659533541f201e6f80",
+      "price": 50
+    }
+  ]
+}]

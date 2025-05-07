@@ -1,128 +1,180 @@
-[
-  {
-    "name": "Basic Sword",
-    "type": "weapon",
-    "value": 10,
-    "effect": "Increases attack damage by 5",
-    "rarity": "common"
+[{
+  "_id": {
+    "$oid": "681b8e659533541f201e6f70"
   },
-  {
-    "name": "Iron Shield",
-    "type": "armor",
-    "value": 15,
-    "effect": "Increases defense by 10",
-    "rarity": "common"
+  "name": "Basic Sword",
+  "type": "weapon",
+  "value": 10,
+  "effect": "Increases attack damage by 5",
+  "rarity": "common"
+},
+{
+  "_id": {
+    "$oid": "681b8e659533541f201e6f71"
   },
-  {
-    "name": "Health Potion (Week)",
-    "type": "potion",
-    "value": 5,
-    "effect": "Heals 15 health",
-    "rarity": "common"
+  "name": "Iron Shield",
+  "type": "armor",
+  "value": 15,
+  "effect": "Increases max health by 10",
+  "rarity": "common"
+},
+{
+  "_id": {
+    "$oid": "681b8e659533541f201e6f72"
   },
-  {
-    "name": "Health Potion (Regular)",
-    "type": "potion",
-    "value": 10,
-    "effect": "Heals 30 health",
-    "rarity": "common"
+  "name": "Health Potion (Week)",
+  "type": "potion",
+  "value": 15,
+  "effect": "Heals 15 health",
+  "rarity": "common"
+},
+{
+  "_id": {
+    "$oid": "681b8e659533541f201e6f73"
   },
-  {
-    "name": "Elven Sword",
-    "type": "weapon",
-    "value": 50,
-    "effect": "Increases attack damage by 20",
-    "rarity": "rare"
+  "name": "Health Potion (Regular)",
+  "type": "potion",
+  "value": 30,
+  "effect": "Heals 30 health",
+  "rarity": "common"
+},
+{
+  "_id": {
+    "$oid": "681b8e659533541f201e6f74"
   },
-  {
-    "name": "Elven Armor",
-    "type": "armor",
-    "value": 75,
-    "effect": "Increases defense by 25",
-    "rarity": "rare"
+  "name": "Elven Sword",
+  "type": "weapon",
+  "value": 150,
+  "effect": "Increases attack damage by 20",
+  "rarity": "rare"
+},
+{
+  "_id": {
+    "$oid": "681b8e659533541f201e6f75"
   },
-  {
-    "name": "Dragon Scale Shield",
-    "type": "armor",
-    "value": 100,
-    "effect": "Increases defense by 50, resistance to dragon fire",
-    "rarity": "epic"
+  "name": "Elven Armor",
+  "type": "armor",
+  "value": 100,
+  "effect": "Increases max health by 25",
+  "rarity": "rare"
+},
+{
+  "_id": {
+    "$oid": "681b8e659533541f201e6f76"
   },
-  {
-    "name": "Fireball Potion",
-    "type": "potion",
-    "value": 20,
-    "effect": "Deals 40 fire damage to a single enemy",
-    "rarity": "rare"
+  "name": "Dragon Scale Shield",
+  "type": "armor",
+  "value": 125,
+  "effect": "Increases max health by 50",
+  "rarity": "epic"
+},
+{
+  "_id": {
+    "$oid": "681b8e659533541f201e6f77"
   },
-  {
-    "name": "Gold Coin",
-    "type": "miscellaneous",
-    "value": 1,
-    "effect": "Currency used to buy items and services",
-    "rarity": "common"
+  "name": "Fireball Potion",
+  "type": "potion",
+  "value": 80,
+  "effect": "Deals 50 fire damage to a single enemy",
+  "rarity": "rare"
+},
+{
+  "_id": {
+    "$oid": "681b8e659533541f201e6f78"
   },
-  {
-    "name": "Elven Bow",
-    "type": "weapon",
-    "value": 70,
-    "effect": "Increases attack damage by 25, ranged",
-    "rarity": "epic"
+  "name": "Gold Coin",
+  "type": "miscellaneous",
+  "value": 1,
+  "effect": "Currency used to buy items and services",
+  "rarity": "common"
+},
+{
+  "_id": {
+    "$oid": "681b8e659533541f201e6f79"
   },
-  {
-    "name": "Healing Herb",
-    "type": "potion",
-    "value": 8,
-    "effect": "Heals 10 health, usable in combat",
-    "rarity": "uncommon"
+  "name": "Elven Bow",
+  "type": "weapon",
+  "value": 70,
+  "effect": "Increases attack damage by 25, ranged",
+  "rarity": "epic"
+},
+{
+  "_id": {
+    "$oid": "681b8e659533541f201e6f7a"
   },
-  {
-    "name": "Large Spider Venom",
-    "type": "miscellaneous",
-    "value": 5,
-    "effect": "Can be sold to a merchant for gold",
-    "rarity": "common"
+  "name": "Healing Herb",
+  "type": "potion",
+  "value": 8,
+  "effect": "Heals 10 health, usable in combat",
+  "rarity": "uncommon"
+},
+{
+  "_id": {
+    "$oid": "681b8e659533541f201e6f7b"
   },
-  {
-    "name": "Goblin Ear",
-    "type": "miscellaneous",
-    "value": 3,
-    "effect": "Can be sold to a merchant for gold",
-    "rarity": "common"
+  "name": "Large Spider Venom",
+  "type": "miscellaneous",
+  "value": 25,
+  "effect": "Can be sold to a merchant for gold",
+  "rarity": "common"
+},
+{
+  "_id": {
+    "$oid": "681b8e659533541f201e6f7c"
   },
-  {
-    "name": "Boar Tusk",
-    "type": "miscellaneous",
-    "value": 7,
-    "effect": "Can be sold to a merchant for gold",
-    "rarity": "common"
+  "name": "Goblin Ear",
+  "type": "miscellaneous",
+  "value": 3,
+  "effect": "Can be sold to a merchant for gold",
+  "rarity": "common"
+},
+{
+  "_id": {
+    "$oid": "681b8e659533541f201e6f7d"
   },
-  {
-    "name": "Wolf Pelt",
-    "type": "miscellaneous",
-    "value": 10,
-    "effect": "Can be sold to a merchant for gold or used for crafting",
-    "rarity": "common"
+  "name": "Boar Tusk",
+  "type": "miscellaneous",
+  "value": 9,
+  "effect": "Can be sold to a merchant for gold",
+  "rarity": "common"
+},
+{
+  "_id": {
+    "$oid": "681b8e659533541f201e6f7e"
   },
-  {
-    "name": "Orc Bone",
-    "type": "miscellaneous",
-    "value": 12,
-    "effect": "Can be sold to a merchant for gold",
-    "rarity": "uncommon"
+  "name": "Wolf Pelt",
+  "type": "miscellaneous",
+  "value": 20,
+  "effect": "Can be sold to a merchant for gold or used for crafting",
+  "rarity": "common"
+},
+{
+  "_id": {
+    "$oid": "681b8e659533541f201e6f7f"
   },
-  {
-    "name": "Elven Healing Potion",
-    "type": "potion",
-    "value": 50,
-    "effect": "Heals 50 health, can be used in combat",
-    "rarity": "epic"
+  "name": "Orc Bone",
+  "type": "miscellaneous",
+  "value": 15,
+  "effect": "Can be sold to a merchant for gold",
+  "rarity": "uncommon"
+},
+{
+  "_id": {
+    "$oid": "681b8e659533541f201e6f80"
   },
-  {
-    "name": "Dragon's Breath Elixir",
-    "type": "potion",
-    "value": 100,
-    "effect": "Increases attack damage by 30 for 5 minutes",
-    "rarity": "epic"
-  }
-]
+  "name": "Elven Healing Potion",
+  "type": "potion",
+  "value": 50,
+  "effect": "Heals 70 health, can be used in combat",
+  "rarity": "epic"
+},
+{
+  "_id": {
+    "$oid": "681b8e659533541f201e6f81"
+  },
+  "name": "Spider silk",
+  "type": "miscellaneous",
+  "value": 25,
+  "effect": "Can be sold to a merchant for gold",
+  "rarity": "rare"
+}]

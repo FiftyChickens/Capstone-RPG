@@ -1,118 +1,126 @@
-[
-  {
-    "name": "Goblin",
-    "level": 3,
-    "health": 30,
-    "damage": 5,
-    "drop": [
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bc5",
-        "quantity": 12
-      },
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bc5",
-        "quantity": 7
-      },
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bc9",
-        "quantity": 1
-      }
-    ]
+[{
+  "_id": {
+    "$oid": "681b8e529533541f201e6f68"
   },
-  {
-    "name": "Large Spider",
-    "level": 5,
-    "health": 50,
-    "damage": 8,
-    "drop": [
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bbf",
-        "quantity": 1
-      },
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bc0",
-        "quantity": 1
-      },
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bc8",
-        "quantity": 1
-      }
-    ]
+  "name": "Goblin",
+  "level": 3,
+  "health": 30,
+  "damage": 5,
+  "drop": [
+    {
+      "itemId": "681b8e659533541f201e6f78",
+      "quantity": 12
+    },
+    {
+      "itemId": "681b8e659533541f201e6f78",
+      "quantity": 7
+    },
+    {
+      "itemId": "681b8e659533541f201e6f7c",
+      "quantity": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "681b8e529533541f201e6f69"
   },
-  {
-    "name": "Boar",
-    "level": 4,
-    "health": 40,
-    "damage": 6,
-    "drop": [
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bca",
-        "quantity": 1
-      },
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bbf",
-        "quantity": 1
-      }
-    ]
+  "name": "Large Spider",
+  "level": 6,
+  "health": 50,
+  "damage": 8,
+  "drop": [
+    {
+      "itemId": "681b8e659533541f201e6f7b",
+      "quantity": 1
+    },
+    {
+      "itemId": "681b8e659533541f201e6f81",
+      "quantity": 1
+    },
+    {
+      "itemId": "681b8e659533541f201e6f72",
+      "quantity": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "681b8e529533541f201e6f6a"
   },
-  {
-    "name": "Wolf",
-    "level": 6,
-    "health": 60,
-    "damage": 9,
-    "drop": [
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bbf",
-        "quantity": 1
-      },
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bc0",
-        "quantity": 1
-      },
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bcb",
-        "quantity": 1
-      }
-    ]
+  "name": "Boar",
+  "level": 4,
+  "health": 40,
+  "damage": 6,
+  "drop": [
+    {
+      "itemId": "681b8e659533541f201e6f7e",
+      "quantity": 1
+    },
+    {
+      "itemId": "681b8e659533541f201e6f72",
+      "quantity": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "681b8e529533541f201e6f6b"
   },
-  {
-    "name": "Orc",
-    "level": 8,
-    "health": 80,
-    "damage": 12,
-    "drop": [
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bbd",
-        "quantity": 2
-      },
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bc0",
-        "quantity": 1
-      },
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bbd",
-        "quantity": 1
-      }
-    ]
+  "name": "Wolf",
+  "level": 7,
+  "health": 60,
+  "damage": 9,
+  "drop": [
+    {
+      "itemId": "681b8e659533541f201e6f7e",
+      "quantity": 1
+    },
+    {
+      "itemId": "681b8e659533541f201e6f7c",
+      "quantity": 1
+    },
+    {
+      "itemId": "681b8e659533541f201e6f7f",
+      "quantity": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "681b8e529533541f201e6f6c"
   },
-  {
-    "name": "Dragon",
-    "level": 20,
-    "health": 200,
-    "damage": 25,
-    "drop": [
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bbd",
-        "quantity": 10
-      },
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bc1",
-        "quantity": 1
-      },
-      {
-        "itemId": "67ad2c5633ae5f1d35ec7bbd",
-        "quantity": 5
-      }
-    ]
-  }
-]
+  "name": "Orc",
+  "level": 10,
+  "health": 80,
+  "damage": 12,
+  "drop": [
+    {
+      "itemId": "681b8e659533541f201e6f7f",
+      "quantity": 2
+    },
+    {
+      "itemId": "681b8e659533541f201e6f7e",
+      "quantity": 1
+    },
+    {
+      "itemId": "681b8e659533541f201e6f73",
+      "quantity": 1
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "681b8e529533541f201e6f6d"
+  },
+  "name": "Dragon",
+  "level": 40,
+  "health": 250,
+  "damage": 35,
+  "drop": [
+    {
+      "itemId": "681b8e659533541f201e6f78",
+      "quantity": 1569
+    }
+  ]
+}]

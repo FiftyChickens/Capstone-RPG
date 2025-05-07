@@ -32,7 +32,7 @@ const GameoverPage = () => {
         <p>And eventually... everything else.</p>
       </div>
       <Button onClick={handleRetry} addedClass="mt-4">
-        Retry?
+        Start Over?
       </Button>
     </div>
   );

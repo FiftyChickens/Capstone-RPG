@@ -67,7 +67,7 @@ export default function ActionWindow({
           } else if (actionName === "Continue forward") {
             logMessage =
               "The path ends abruptly. The only way forward is to continue farther into the darkness.";
-          } else if (actionName === "Prove your self") {
+          } else if (actionName === "Accept Challange") {
             logMessage =
               "A high-ranking elf follows you out of the village and says:\n\"If you prove you're strong enough to defeat the dragon, we will reveal the path.\nOtherwise, you'll only put our lives at risk.\"";
           }
@@ -260,7 +260,7 @@ export default function ActionWindow({
 
       if (actionName === "Dragon's Lair") {
         const hasCompletedElvenQuest = completedQuests.some(
-          (quest) => quest._id.toString() === "67e2f13018d373ec4404b997"
+          (quest) => quest._id.toString() === "681b8e849533541f201e6f89"
         );
         return hasCompletedElvenQuest;
       }

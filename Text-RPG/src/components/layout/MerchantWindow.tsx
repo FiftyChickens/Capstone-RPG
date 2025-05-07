@@ -77,7 +77,13 @@ const MerchantWindow = ({
   ];
 
   const filteredShopItems = shopItems.filter((shopItem) => {
+    if (!shopItem.itemId || !shopItem.itemId.name) {
+      console.warn("Missing itemId or name in shopItem:", shopItem);
+      return false; // skip undefined or malformed items
+    }
+
     const isSpecialItem = specialItems.includes(shopItem.itemId.name);
+
     return (
       !isSpecialItem ||
       !userInventory.some(
