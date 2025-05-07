@@ -177,7 +177,7 @@ const CombatWindow = ({
     const randomItem =
       enemy.drop[Math.floor(Math.random() * enemy.drop.length)];
     const itemId = randomItem.itemId._id; // Get the item ID directly
-    const goldId = "67ad2c5633ae5f1d35ec7bc5";
+    const goldId = "681b8e659533541f201e6f78";
     const increaseXP = applyRandomOffset(enemy.level * 3, -3, 7);
     const updateGold = randomItem.quantity;
 

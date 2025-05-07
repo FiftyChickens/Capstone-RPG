@@ -57,19 +57,19 @@ export default function ActionWindow({
 
           if (actionName === "Gather Items") {
             logMessage =
-              "Your Sword and Shield rest on a table. \n Gather your equipment and prepare yourself.";
+              "Your sword and shield rest on a table.\nGather your equipment and prepare yourself.";
           } else if (actionName === "Agree to help") {
             logMessage =
-              "A villager from the nearby town is asking you to stop the advance of goblins on the village.";
+              "A villager from the nearby town asks you to stop the goblins advancing on the village.";
           } else if (actionName === "Ask about the dragon") {
             logMessage =
-              "You over hear a conversaion, seems they might have seen where the dragon has flown off to.";
-          } else if (actionName === "Find Elven Village") {
+              "You overhear a conversation about the dragon and move closer. It seems they may have seen where the dragon flew off to.";
+          } else if (actionName === "Continue forward") {
             logMessage =
-              "The path ends abruptly the only to find the elvs is to wander farther into the darkness.";
+              "The path ends abruptly. The only way forward is to continue farther into the darkness.";
           } else if (actionName === "Prove your self") {
             logMessage =
-              "A High ranking elf has followed you out of the village, they say: \n If you prove you're strong enough to defeat the dragon we will reveal the path. \n otherwise youll only put our lives at risk.";
+              "A high-ranking elf follows you out of the village and says:\n\"If you prove you're strong enough to defeat the dragon, we will reveal the path.\nOtherwise, you'll only put our lives at risk.\"";
           }
           if (logMessage && prevLogs[prevLogs.length - 1] !== logMessage) {
             prevLogs.push(logMessage);
@@ -248,12 +248,12 @@ export default function ActionWindow({
       }
 
       if (actionName === "Wander") {
-        return completedActions.includes("67e2d82018d373ec4404b981");
+        return completedActions.includes("67b7ca061f6a56beaeb4db5b");
       }
 
       if (actionName === "Elven Village") {
         const hasCompletedElvenQuest = completedQuests.some(
-          (quest) => quest._id.toString() === "67e2d6bb18d373ec4404b97c"
+          (quest) => quest._id.toString() === "681b8e849533541f201e6f88"
         );
         return hasCompletedElvenQuest;
       }
